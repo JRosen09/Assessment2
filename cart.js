@@ -7,7 +7,6 @@
     creating customer objects.  
 */
 
-
 //////////////////PROBLEM 1////////////////////
 /*  
     Below is a cart array that has food objects
@@ -19,24 +18,26 @@
 */
 
 const cart = [
-    {
-        name: 'pizza', 
-        price: 9.99
-    }, 
-    {
-        name: 'pasta', 
-        price: 8.99
-    }, 
-    {
-        name: 'salad', 
-        price: 7.99
-    }
-]
+  {
+    name: "pizza",
+    price: 9.99,
+  },
+  {
+    name: "pasta",
+    price: 8.99,
+  },
+  {
+    name: "salad",
+    price: 7.99,
+  },
+];
 
 //CODE HERE
+const summedPrice = cart.reduce((total, current) => total + current.price, 0);
+
+console.log(summedPrice);
 
 // const summedPrice = cart.reduce(/* CALLBACK HERE */)
-
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -54,9 +55,13 @@ const cart = [
 */
 
 //CODE HERE
+const calcFinalPrice = (cartTotal, couponValue, tax) => {
+  const totalBeforeCoupon = cartTotal * (1 + tax);
+  const finalPrice = totalBeforeCoupon - couponValue;
 
-
-
+  return finalPrice;
+};
+console.log(calcFinalPrice(summedPrice, 5, 0.06));
 //////////////////PROBLEM 3////////////////////
 /*  
     In this problem, you'll create a model for 
@@ -79,6 +84,9 @@ const cart = [
 
 /*
     TEXT ANSWER HERE
+    with every customer, they will almost always have a first and last name, address, and city. All of which will be a string.
+    With the customer, all will have a phoneNumber for point of contact which will be an integer, always.
+    I included the first and last name for verification purposes. Address and city for delivery availability will.
 
 */
 
@@ -88,3 +96,10 @@ const cart = [
 */
 
 //CODE HERE
+const firstCustomer = {
+  firstname: `fName`,
+  LastName: `lName`,
+  address: `address`,
+  City: `city`,
+  phoneNumber: 354443,
+};

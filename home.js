@@ -21,9 +21,11 @@
 */
 
 //CODE HERE
-const greetUser = username => (`Welcome back, ` + username);
+const greetUser = (username) => `Welcome back, ${username}`;
+//const greetUser = (username) => "Welcome back, " + username
 
 greetUser(`Andrew`);
+//console.log(greetUser(`Andrew`));
 
 //////////////////PROBLEM 2////////////////////
 /* 
@@ -49,18 +51,30 @@ greetUser(`Andrew`);
 
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206];
 //CODE HERE
-const canWeDeliver = (zipcode) = {
-    
-    for(i = 0; i < deliveryAreaZipCodes.length; i++){
-        if(deliveryAreaZipCodes[i] === zipcode){
-            return `We CAN deliver to you!`
-        }else {
-            `Sorry, We can NOT deliver to you!`
-        }
+// const canWeDeliver = (zipcode) => {
+// for (i = 0; i < deliveryAreaZipCodes.length; i++) {
+//   if (deliveryAreaZipCodes[i] === zipcode) {
+//     return `We CAN deliver to you!`;
+//   } else {
+//     `Sorry, We can NOT deliver to you!`;
+//   }
+// }
+
+// }
+console.log(canWeDeliver(85205));
+//correct answer
+const canWeDeliver = (zipCode) => {
+  for (let i = 0; i < deliveryAreaZipCodes.length; i++) {
+    if (deliveryAreaZipCodes[i] === zipCode) {
+      return "You are eligible for delivery";
     }
-}
-canWeDeliver(85205)
-console.log(zipcode)
+  }
+
+  return "Sorry, we can't deliver to that address";
+};
+
+console.log(canWeDeliver(85203));
+console.log(canWeDeliver(55555));
 
 /* 
     Problem 2 Continued
@@ -82,14 +96,27 @@ console.log(zipcode)
 */
 
 // CODE HERE
-function canWeDeliverTwo = (zipcode) {
-    for(i = 0; i < deliveryAreaZipCodes.length; i++){
-    if(deliveryAreaZipCodes.includes (zipcode)) === true
-    } else {
-        false
-    }
-}
+const canWeDeliverTwo = (zipcode) => {
+  deliveryAreaZipCodes.includes(zipcode);
+  if (deliveryAreaZipCodes.includes(zipcode)) {
+    return "You are eligible for delivery";
+  } else {
+    return "Sorry, we can't deliver to that address";
+  }
+};
+// function canWeDeliverTwo = (zipcode) => {
+// for(i = 0; i < deliveryAreaZipCodes.length; i++){
+// if(deliveryAreaZipCodes.includes (zipcode)) === true
+// } else {
+//     false
+// }
+// }
 
+// const canWeDeliverTwo = (zipcode) => {
+//     if(deliveryAreaZipCodes)
+// }
+
+// console.log(canWeDeliverTwo(85203))
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -125,8 +152,17 @@ const deals = [
 
 //CODE HERE
 
-const no15percentDeal = deals.replace (`15%`, `10%`)
-console.log(no15percentDeal)
+const no15percentDeal = deals.replace(`15%`, `10%`);
+console.log(no15percentDeal);
+
+//answer****
+console.log(deals[0].title); //will show just the values at dot notation
+deals[0].title = "this is my replacement title";
+
+console.log(deals[0].title);
+
+//replace method answer
+deals[0].title = deals[0].title.replace(`15%`, `10%`);
 /*
     The restaurant is going to continue its
     family deal for another month. 
@@ -140,5 +176,8 @@ console.log(no15percentDeal)
     to be displaying wrong on the live site.
 */
 
-//CODE HERE
-DON'T Understand the fomula, only maybe spent a day just talking about it/ being indroduced to it and am supposed to retain the info by the end of the week for assement 
+//CODE HERE answer
+console.log(deals[1].desc);
+deals[1].desc = deals[1].desc.trim().replace(`March`, `April`);
+
+console.log(deals[1].desc);

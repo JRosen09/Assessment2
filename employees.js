@@ -20,8 +20,15 @@
 */
 
 //CODE HERE
-
-
+class Employee {
+  constructor(name, shifts) {
+    this.name = name;
+    this.shifts = shifts;
+  }
+  getSchedule() {
+    console.log(`${this.name} works on ${this.shifts}`);
+  }
+}
 
 /*
     Create a new instance of your class.
@@ -34,14 +41,14 @@
 */
 
 //CODE HERE
+const empOne = new Employee(`jess`, [`weekdays`, `afternoons`]);
 
 /*
     Call the `getSchedule` method on the
     `empOne` object.
 */
-
 //CODE HERE
-
+empOne.getSchedule();
 
 /*
     Make a copy of the empOne object
@@ -56,8 +63,9 @@
 */
 
 //CODE HERE
-
-
+const empTwo = { ...empOne };
+empTwo.name = `Nick`;
+console.log(empTwo);
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -83,12 +91,23 @@
 */
 
 //CODE HERE
-
-
+class Manager extends Employee {
+  constructor(name, shifts, employees) {
+    super(name, shifts);
+    this.employees = employees;
+  }
+  getEmployees() {
+    console.log(`${this.name} manages ${this.employees}`);
+  }
+  addEmployee(emp) {
+    this.employees.push(emp);
+  }
+}
 
 /*
     Create a new instance of your class.
     Save it to a variable called `manager`.
+
 
     You can use this sample data or make
     up your own:
@@ -96,9 +115,11 @@
     shifts: weekday mornings, weekday afternoons
     employees: Cece and Schmidt
 */
-
 //CODE HERE
-
+const manager = new Manager(`Jacob`, `weekday mornings, weekday afternoons`, [
+  `Cece`,
+  `Sam`,
+]);
 
 /*
     Call the `getEmployees` method on the
@@ -106,6 +127,7 @@
 */
 
 //CODE HERE
+manager.getEmployees();
 
 /*
     Call the `addEmployee` method on the 
@@ -113,7 +135,8 @@
     'Coach' or whatever name you'd like.
 */
 
-//CODE HERE 
+//CODE HERE
+manager.addEmployee(`Coach`);
 
 /*
     Call the `getEmployees` method on the
@@ -122,3 +145,4 @@
 */
 
 //CODE HERE
+manager.getEmployees();

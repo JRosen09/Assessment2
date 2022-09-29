@@ -1,0 +1,8 @@
+create 3 lofi, - boxes simple implementation
+create 1 hifi, - what it could look like functionality
+style guide 3 colors, 1
+for the resturant 
+
+
+https://www.figma.com/file/CxcaHFgqsXh4i3DfJichRd/Untitled?node-id=0%3A1
+

@@ -35,7 +35,7 @@ const pizza = {
   category: `main course`,
   popularity: 5,
   rating: 5,
-  tags: `kids, big, gluten-free`,
+  tags: [`kids`, `big`, `gluten-free`],
 };
 
 //////////////////PROBLEM 2////////////////////
@@ -54,7 +54,7 @@ console.log(pizza.popularity);
     get the value.
 */
 //CODE HERE
-console.log(pizza.tags);
+console.log(pizza.tags[1]);
 
 /*
     Third, destructure the price off of the pizza object.
@@ -87,7 +87,50 @@ console.log(category);
     data in some functions that you'll write.
 */
 //CODE HERE
-let foodArr = [`datePizza, 10, couples, 4, 4, (datenight, couples, cheap)`];
+//let foodArr = [`datePizza`, 10, `couples`, 4, 4, [datenight, couples, cheap]];
+
+const foodArr = [
+  {
+    name: "pizza",
+    price: 9.99,
+    category: "entree",
+    popularity: 1,
+    rating: 4.7,
+    tags: ["customer favorite", "kids", "gluten-free option"],
+  },
+  {
+    name: "pasta",
+    price: 8.99,
+    category: "entree",
+    popularity: 3,
+    rating: 4.8,
+    tags: ["customer favorite"],
+  },
+  {
+    name: "salad",
+    price: 7.99,
+    category: "side",
+    popularity: 4,
+    rating: 4.4,
+    tags: ["gluten-free option"],
+  },
+  {
+    name: "cookie",
+    price: 2.99,
+    category: "dessert",
+    popularity: 2,
+    rating: 5.0,
+    tags: ["customer favorite", "kids"],
+  },
+  {
+    name: "breadsticks",
+    price: 6.99,
+    category: "side",
+    popularity: 5,
+    rating: 4.6,
+    tags: ["customer favorite", "kids"],
+  },
+];
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -101,9 +144,17 @@ let foodArr = [`datePizza, 10, couples, 4, 4, (datenight, couples, cheap)`];
     your food objects has.
 */
 //CODE HERE
+const filteredFood = foodArr.filter((food) => {
+  if (food.tags.includes(`kids`)) {
+    return food;
+  }
+});
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+console.log(filteredFood);
 
+//one line answer
+
+const filteredFood2 = (foodArr.filter = food.tags.incudes(`kids`));
 //////////////////PROBLEM 5////////////////////
 /* 
     Now let's write a function that's a little
@@ -113,8 +164,11 @@ let foodArr = [`datePizza, 10, couples, 4, 4, (datenight, couples, cheap)`];
     below a certain price, or any other combo.
 
     Write a function called `filterByProperty`
-    that takes in three arguments: `property`, 
-    `number`, and `type. 
+    
+    that takes in three arguments: 
+    `property`, 
+    `number`, 
+    and `type. 
 
     The property will be a string (rating,
     popularity, or price)
@@ -142,8 +196,17 @@ let foodArr = [`datePizza, 10, couples, 4, 4, (datenight, couples, cheap)`];
     
     Return the filtered array from the entire function
 */
-
 //CODE HERE
+const filterByProperty = (property, number, type) => {
+  const filteredFood = foodArr.filter((food) => {
+    if (type === `above`) {
+      return food[property] >= number;
+    } else {
+      return food[property] <= number;
+    }
+  });
+  return filteredFood;
+};
 
 /*
     Invoke the `filterByProperty` function passing

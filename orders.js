@@ -29,13 +29,17 @@
     stored on the object.
 */
 //CODE HERE
-class Tickets {
-    constructor(items, orderTime, customerID){
-        this.items = items
-        this.orderTime = orderTime
-        this.customerID = customerID
-    }
-    status(`queued`)
+class Ticket {
+  constructor(items, orderTime, customerId) {
+    this.items = items;
+    this.orderTime = orderTime;
+    this.customerID = customerId;
+    this.status = `queued`;
+  }
+  updateStatus(newStatus) {
+    this.status = newStatus;
+    console.log(`Status for the customer ${this.customerID} is ${this.status}`);
+  }
 }
 /*
     Create a new instance of your class.
@@ -48,6 +52,9 @@ class Tickets {
     customer: 575
 */
 //CODE HERE
+const firstTicket = new Ticket(`pizza, bread, soda`, `7:15`, 575);
+
+//console.log(firstTicket)
 
 /*
     Call the `updateStatus` method on
@@ -56,4 +63,4 @@ class Tickets {
 */
 
 //CODE HERE
-time 1:47
+firstTicket.updateStatus(`cooking`);
